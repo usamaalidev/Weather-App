@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  src: url(../fonts/Kardust/Kardust\ Light.otf);
+  font-family: "Kardust";
+  font-weight: 300;
+}
+
+@font-face {
+  src: url(../fonts/Kardust/Kardust.otf);
+  font-family: "Kardust";
+  font-weight: 400;
+}
+
+@font-face {
+  src: url(../fonts/Kardust/Kardust\ Bold.otf);
+  font-family: "Kardust";
+  font-weight: 700;
+}

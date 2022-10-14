@@ -1,0 +1,358 @@
+/* ========> Variables */
+
+:root {
+  --light-black: #2a2a2a;
+  --dark-black: #101014;
+  --light-yellow: #f6d58e;
+  --dark-yellow: #e3bb62;
+  --light-white: #f1f1f1;
+  --mid-gray: #737377;
+}
+
+/* ========> Global Rules */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark-black);
+  color: var(--light-white);
+}
+
+::selection {
+  background-color: var(--light-white);
+  color: var(--dark-black);
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #aaa;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hide {
+  display: none !important;
+}
+
+.bg-danger {
+  background-color: rgb(153, 32, 32);
+}
+
+.bg-info {
+  background-color: rgb(34, 168, 195);
+}
+/* ========> Interface Rules */
+
+.interface {
+  width: 100%;
+  min-height: 100vh;
+  padding-block: 50px;
+}
+
+.interface .container {
+  height: 100%;
+  padding-inline: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.container header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header .location {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+header .location .city-name {
+  font-weight: 700;
+}
+
+header .search-bar {
+  position: relative;
+  width: 40%;
+}
+
+header .search-bar input {
+  width: 100%;
+  border: none;
+  padding: 9px 50px;
+  border-radius: 20px;
+  background-color: var(--light-black);
+  color: #fff;
+  font-size: 18px;
+}
+
+header .search-bar input:focus-visible {
+  outline: none;
+}
+
+header .search-bar input::placeholder {
+  font-size: 17px;
+}
+
+header .search-bar i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* ========> Forecast Section */
+section.forecast {
+  padding-block: 20px;
+}
+
+.forecast-data {
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.forecast-data h2 {
+  padding-bottom: 20px;
+}
+
+.forecast-cards {
+  display: flex;
+  gap: 15px;
+}
+
+.forecast-cards .card {
+  background-color: var(--light-black);
+  border-radius: 30px;
+  transition: flex-grow 100ms;
+}
+
+.forecast-cards .card .card-header {
+  padding: 15px 20px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+}
+
+.forecast-cards .card:not(.active) .card-header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  width: 50%;
+  background-color: var(--light-white);
+  height: 1px;
+}
+
+.card .card-header .time {
+  font-family: "Kardust";
+  font-weight: 700;
+  display: none;
+}
+
+.forecast-cards .card .card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.card .card-body img {
+  width: 80px;
+}
+
+.card .card-body .degree {
+  font-size: 35px;
+  font-family: "Kardust";
+  font-weight: 700;
+}
+
+.card .card-data {
+  padding: 0 20px 13px;
+  display: none;
+}
+
+.card .card-data ul:nth-child(2) {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.card .card-data ul li {
+  font-size: 15px;
+}
+
+.card .card-data ul li span {
+  font-size: 14px;
+  font-family: "Kardust";
+  font-weight: 700;
+}
+
+.forecast-cards .card.active {
+  min-width: 350px;
+  background-color: var(--light-yellow);
+  color: var(--dark-black);
+  flex-grow: 1;
+}
+
+.card.active .card-header {
+  background-color: var(--dark-yellow);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.card.active .card-header .time {
+  display: block;
+}
+
+.forecast-cards .card.active .card-body {
+  padding: 5px 15px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card.active .card-body .degree {
+  font-size: 65px;
+}
+
+.card.active .card-body img {
+  width: 100px;
+  order: 10;
+}
+
+.card.active .card-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rain-chance {
+  padding: 10px 10px 10px 20px;
+}
+
+.rain-day-hours {
+  height: 100%;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rain-day-hours .clock {
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rain-day-hours .clock .bar {
+  width: 15px;
+  height: 150px;
+  background-color: var(--light-black);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+}
+
+.rain-day-hours .clock .percent {
+  width: 100%;
+  height: 0%;
+  background-color: var(--dark-yellow);
+  border-radius: inherit;
+}
+
+.rain-day-hours .clock p {
+  margin-top: 10px;
+}
+
+/* ========> Recent Cities Section */
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recent-header button {
+  padding: 10px 20px;
+  background-color: var(--light-black);
+  color: var(--light-white);
+  border-radius: 25px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: url(../images/warning-cursor.png), auto;
+}
+
+.recent-header button i {
+  padding-left: 5px;
+  color: var(--light-yellow);
+}
+
+.city-items {
+  padding: 20px 10px;
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+}
+
+.city-items .item {
+  width: 20%;
+  min-width: 150px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.city-items .item .city-image {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.city-items .item img {
+  width: 100%;
+  display: block;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center center;
+  transition: scale 350ms;
+  aspect-ratio: 2/3;
+}
+
+.city-items .item img:hover {
+  scale: 1.1;
+}
+
+.city-items .item .city-name {
+  padding-top: 10px;
+}
+
+.city-items .item .city-name span {
+  font-weight: 700;
+}
