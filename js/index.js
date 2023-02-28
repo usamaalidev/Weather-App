@@ -104,7 +104,7 @@ function displayWeather(forecastData) {
     }</div>
       </div>
       <div class="card-body">
-        <img src="images/conditions/${
+        <img src="./images/conditions/${
           day.hour[timeNow.getHours()].condition.text
         }.svg" alt="" />
         <div class="degree">${Math.trunc(
