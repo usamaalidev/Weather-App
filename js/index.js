@@ -40,7 +40,7 @@ if (JSON.parse(localStorage.getItem("recentCities"))) {
 // Getting forecast data from Weather API
 async function getForecast(city) {
   let response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?days=7&q=${city}&key=7c1cc29626f24a25bd9165933221010`
+    `https://api.weatherapi.com/v1/forecast.json?days=7&q=${city}&key=6cdfd9e352264bc1af4154012231902`
   );
   forecastData = await response.json();
   displayWeather(forecastData);
@@ -185,7 +185,7 @@ function showRecentCities(item) {
           <img src="${item.image}" alt="Image for ${item.city} city" />
         </div>
         <div class="city-name"><span class="city-name">${item.city}</span>, ${item.country}</div>
-      </div>    
+      </div>
     `;
   recentCitiesContainer.innerHTML += itemContent;
 }
