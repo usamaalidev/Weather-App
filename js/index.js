@@ -40,9 +40,10 @@ if (JSON.parse(localStorage.getItem("recentCities"))) {
 // Getting forecast data from Weather API
 async function getForecast(city) {
   let response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?days=7&q=${city}&key=6cdfd9e352264bc1af4154012231902`
+    `https://api.weatherapi.com/v1/forecast.json?days=7&q=${city}&key=7fdcd34ae77d4704bcd13602231104`
   );
   forecastData = await response.json();
+  console.log(forecastData);
   displayWeather(forecastData);
 }
 
