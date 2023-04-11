@@ -301,6 +301,7 @@ section.forecast {
 }
 
 .recent-header button {
+  all: unset;
   padding: 10px 20px;
   background-color: var(--light-black);
   color: var(--light-white);
